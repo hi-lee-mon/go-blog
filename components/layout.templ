@@ -1,0 +1,26 @@
+package components
+
+templ Layout(title string) {
+  <html>
+    <head>
+      <title>{ title }</title>
+      <link rel="stylesheet" href="../static/reset.css"/>
+      <link rel="stylesheet" href="../static/layout.css"/>
+      <link rel="stylesheet" href="../static/post.css"/>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <main>
+        <header class="header">
+          <p class="logo">65banseki Blog</p>
+        </header>
+        { children... }
+        <footer class="footer">
+          <p>Copyright &copy; 2026 65banseki. All rights reserved.</p>
+          <a href="https://github.com/hi-lee-mon?tab=repositories">GitHub</a>
+        </footer>
+      </main>
+    </body>
+  </html>
+}

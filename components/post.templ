@@ -1,0 +1,10 @@
+package components
+
+templ Post(title string, body string) {
+  @Layout(title) {
+    <article class="article">
+      <h2 class="article-heading">{ title }</h2>
+      <div>{ body }</div>
+    </article>
+  }
+}
