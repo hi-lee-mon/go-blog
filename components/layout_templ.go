@@ -50,7 +50,7 @@ func Layout(title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<footer class=\"footer\"><p>Copyright &copy; 2026 65banseki. All rights reserved.</p><a href=\"https://github.com/hi-lee-mon?tab=repositories\">GitHub</a></footer></main></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<footer class=\"footer\"><p>Copyright &copy; 2026 65banseki. All rights reserved.</p><a href=\"https://github.com/hi-lee-mon/go-blog\">GitHub</a></footer></main></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
