@@ -7,4 +7,4 @@ generate:
 	templ generate
 
 build:
-	go run build.go
+	go run main.go
