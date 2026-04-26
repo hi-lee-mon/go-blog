@@ -1,4 +1,4 @@
-.PHONY: generate dev
+.PHONY: generate dev build
 
 dev:
 	templ generate --watch & air

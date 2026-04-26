@@ -7,9 +7,12 @@ import (
 	"path/filepath"
 
 	"go-blog/components"
+
+	"github.com/a-h/templ"
 )
 
 func main() {
+	// public/static ディレクトリを作成(cloudflare pagesはpublicディレクトリをルートとしているため)
 	if err := os.MkdirAll("public/static", 0o755); err != nil {
 		panic(err)
 	}
@@ -18,14 +21,28 @@ func main() {
 		panic(err)
 	}
 
-	f, _ := os.Create("public/index.html")
+	// index.htmlにブログの内容をレンダリングする
+	render("index.html", components.Home(
+		"65bansekiのGo Blog",
+	))
+
+	render("post/index.html", components.Post())
+
+}
+
+func render(path string, c templ.Component) error {
+	prefix := "public/"
+	withPrefixPath := prefix + path
+	// フォルダ作成
+	os.MkdirAll(filepath.Dir(withPrefixPath), 0o755)
+	// ファイル作成
+	f, _ := os.Create(withPrefixPath)
 	defer f.Close()
 	ctx := context.Background()
 
-	components.Post(
-		"Goでブログを作ってみた",
-		"Goでブログを作ってみました。Goはとても速いです。",
-	).Render(ctx, f)
+	c.Render(ctx, f)
+
+	return nil
 }
 
 func copyDir(srcDir, dstDir string) error {

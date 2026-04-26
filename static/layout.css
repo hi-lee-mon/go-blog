@@ -17,13 +17,13 @@ main {
   font-size: 1.75rem;
 }
 
-.article {
+.card {
   border:1px solid skyblue;
   padding:8px;
   border-radius: 16px;
 }
 
-.article-heading{
+.card-heading{
   font-size:1.25rem;
   font-weight: bold;
   line-height: 1.25;
