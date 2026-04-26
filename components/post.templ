@@ -1,9 +1,12 @@
 package components
 
 templ Post() {
-  <article class="article">
-    // TODO:タイトルをマークダウンのフロントマターから取得する
-    <p>Goでブログを作ってみた</p>
-    <a href="../index.html">ホームへ</a>
-  </article>
+  @Layout("Goでブログを作ってみた") {
+    <article class="article">
+      // TODO:タイトルをマークダウンのフロントマターから取得する
+      <h2 class="article-title">Goでブログを作ってみた</h2>
+      <p>記事ページ</p>
+      <a href="../index.html">ホームへ</a>
+    </article>
+  }
 }
