@@ -2,11 +2,14 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
 
 	"go-blog/components"
+
+	"go-blog/parser"
 
 	"github.com/a-h/templ"
 )
@@ -28,6 +31,14 @@ func main() {
 
 	render("post/index.html", components.Post())
 
+	// マークダウンパーサー
+	data, err := os.ReadFile("index.md")
+	if err != nil {
+		panic(err)
+	}
+	input := string(data)
+	got := parser.Parse(input)
+	fmt.Println(got)
 }
 
 func render(path string, c templ.Component) error {
