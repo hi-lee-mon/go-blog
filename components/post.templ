@@ -10,6 +10,7 @@ templ Post(content string, title string) {
       </div>
       <span style="margin-bottom:2rem; display:block"></span>
       <article class="article md">
+        <h1>{title}</h1>
         @templ.Raw(content)
       </article>
     </div>
