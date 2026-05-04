@@ -31,8 +31,7 @@ func replaceStrong(input string) string {
 	var b strings.Builder
 	splits := strings.Split(input, "**")
 	for i, s := range splits {
-		isEscape := strings.HasPrefix(s, "\\")
-		if i%2 != 0 && !isEscape {
+		if i%2 != 0 {
 			// 奇数
 			content := fmt.Sprintf("<strong>%s</strong>", s)
 			b.WriteString(content)
@@ -43,9 +42,25 @@ func replaceStrong(input string) string {
 	return b.String()
 }
 
+func replaceCode(input string) string {
+	var b strings.Builder
+	splits := strings.Split(input, "`")
+	for i, s := range splits {
+		if i%2 != 0 {
+			// 奇数
+			content := fmt.Sprintf("<code>%s</code>", s)
+			b.WriteString(content)
+		} else {
+			b.WriteString(s)
+		}
+	}
+	return b.String()
+}
+
 func writeString(input string, b *strings.Builder) {
 	bold := replaceStrong(input)
-	b.WriteString(bold)
+	code := replaceCode(bold)
+	b.WriteString(code)
 }
 
 func splitFrontMatter(input string) (string, string) {

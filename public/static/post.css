@@ -102,3 +102,14 @@
 .md strong {
   font-weight: 700;
 }
+
+/* ── インラインコード ── */
+.md code {
+  background-color: #1e293b;
+  color: #7dd3fc;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid #334155;
+}
