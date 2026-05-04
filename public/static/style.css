@@ -1,0 +1,11 @@
+.button {
+  background-color: skyblue;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  padding: 0.25rem 1.5rem;
+  cursor: pointer
+}
+
+.button:hover {
+  opacity: .8
+}

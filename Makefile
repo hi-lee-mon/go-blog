@@ -3,6 +3,7 @@
 dev:
 	templ generate --watch & air
 
+# templからgoファイルを作成する
 generate:
 	templ generate
 

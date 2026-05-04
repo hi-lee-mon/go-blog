@@ -1,15 +1,19 @@
+html {
+  font-size: 16px;
+}
+
 main {
   margin: 0 auto;
-  max-width:680px;
+  max-width: 680px;
   line-height: 1.25;
-  padding:0 8px;
+  padding: 0 8px;
   color: #333;
 }
 
 .header {
-  padding:16px 0;
-  margin-bottom:32px;
-  border-bottom:4px solid skyblue;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 0.25rem solid skyblue;
 }
 
 .logo {
@@ -18,21 +22,22 @@ main {
 }
 
 .card {
-  border:1px solid skyblue;
-  padding:8px;
-  border-radius: 16px;
+  border: 1px solid skyblue;
+  padding: 0.5rem;
+  border-radius: 1rem;
 }
 
-.card-heading{
-  font-size:1.25rem;
+.card-heading {
+  font-size: 1.25rem;
   font-weight: bold;
   line-height: 1.25;
 }
 
 .footer {
-  font-size: 1rem;;
-  margin-top:32px;
-  padding:16px 0;
-  border-top:4px solid skyblue;
+  font-size: 1rem;
+  ;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  border-top: 0.25rem solid skyblue;
   text-align: center;
 }

@@ -1,11 +1,18 @@
 package components
 
-templ Home(title string) {
+type BlogData struct {
+	Title string
+	Href  string
+}
+
+templ Home(title string, blogDataList []BlogData) {
   @Layout(title) {
-    <div class="card">
-      // TODO:タイトルをマークダウンのフロントマターから取得する
-      <a href="./post/index.html" class="card-heading">Goでブログを作ってみた</a>
-      <p>Goのテンプレートエンジンを使って、ブログを作成してみました。</p>
-    </div>
+    for _, b := range blogDataList {
+      <div class="card">
+        <a href={ b.Href }>{ b.Title }</a>
+        <p>{b.Title}</p>
+      </div>
+      <span style="margin-bottom:1rem; display:block"></span>
+    }
   }
 }

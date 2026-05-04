@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"go-blog/components"
 
@@ -24,21 +24,40 @@ func main() {
 		panic(err)
 	}
 
-	// index.htmlにブログの内容をレンダリングする
-	render("index.html", components.Home(
-		"65bansekiのGo Blog",
-	))
+	blogDataList := []components.BlogData{}
+	filepath.WalkDir("./contents", func(path string, d os.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
 
-	render("post/index.html", components.Post())
+		// ディレクトリはスキップ
+		if d.IsDir() {
+			return nil
+		}
 
-	// マークダウンパーサー
-	data, err := os.ReadFile("index.md")
-	if err != nil {
-		panic(err)
-	}
-	input := string(data)
-	got := parser.Parse(input)
-	fmt.Println(got)
+		// mdのファイルからhtmlのファイル名とパスを計算
+		replacedPath := strings.Replace(path, ".md", ".html", 1)
+		filename := filepath.Base(replacedPath)
+
+		// マークダウンファイルの中身をパース
+		content, err := os.ReadFile(path)
+		parsed := parser.Parse(string(content))
+
+		// ブログページを生成
+		render("/post/"+filename, components.Post(parsed))
+
+		// ビルドしたブログへのリンクを作成
+		href := "/public" + strings.TrimPrefix(replacedPath, "contents")
+
+		data := components.BlogData{
+			Title: filename, // TODO:フロントマター
+			Href:  href,
+		}
+		blogDataList = append(blogDataList, data)
+		return nil
+	})
+
+	render("index.html", components.Home("65bansekiのGo Blog", blogDataList))
 }
 
 func render(path string, c templ.Component) error {

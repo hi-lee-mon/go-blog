@@ -1,12 +1,13 @@
 package components
 
-templ Post() {
+templ Post(content string) {
   @Layout("Goでブログを作ってみた") {
-    <article class="article">
-      // TODO:タイトルをマークダウンのフロントマターから取得する
-      <h2 class="article-title">Goでブログを作ってみた</h2>
-      <p>記事ページ</p>
-      <a href="../index.html">ホームへ</a>
-    </article>
+    <div>
+      <button onclick="history.back()" class="button">前のページに戻る</button>
+      <span style="margin-bottom:2rem; display:block"></span>
+      <article class="article md">
+        @templ.Raw(content)
+      </article>
+    </div>
   }
 }
