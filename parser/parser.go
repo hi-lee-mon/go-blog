@@ -13,7 +13,19 @@ const (
 	prefixBulletPoint  = "- "
 )
 
+const (
+	prefixTitle       = "title: "
+	prefixDate        = "date: "
+	prefixDescription = "description: "
+)
+
 var regexpPrefixOrder = regexp.MustCompile(`^\d+\. `)
+
+type FrontMatter struct {
+	Title       string
+	Date        string
+	Description string
+}
 
 func replaceStrong(input string) string {
 	var b strings.Builder
@@ -35,7 +47,17 @@ func writeString(input string, b *strings.Builder) {
 	b.WriteString(bold)
 }
 
-func Parse(input string) string {
+func splitFrontMatter(input string) (string, string) {
+	splits := strings.Split(input, "---")
+	frontMatter := splits[1]
+	content := splits[2]
+	return content, frontMatter
+}
+
+func Parse(input string) (string, FrontMatter) {
+
+	content, frontMatter := splitFrontMatter(input)
+
 	// HTMLビルダー
 	var b strings.Builder
 
@@ -48,7 +70,7 @@ func Parse(input string) string {
 	/*
 		パース処理
 	*/
-	lines := strings.Split(input, "\n")
+	lines := strings.Split(content, "\n")
 	for _, line := range lines {
 		/*
 			状態毎の処理
@@ -143,5 +165,23 @@ func Parse(input string) string {
 		writeString(content, &b)
 	}
 
-	return b.String()
+	fm := FrontMatter{}
+	fmLines := strings.Split(frontMatter, "\n")
+	for _, line := range fmLines {
+		switch {
+		case strings.HasPrefix(line, prefixTitle):
+			replacedLine := strings.Replace(line, prefixTitle, "", 1)
+			fm.Title = replacedLine
+
+		case strings.HasPrefix(line, prefixDate):
+			replacedLine := strings.Replace(line, prefixDate, "", 1)
+			fm.Date = replacedLine
+
+		case strings.HasPrefix(line, prefixDescription):
+			replacedLine := strings.Replace(line, prefixDescription, "", 1)
+			fm.Description = replacedLine
+		}
+	}
+
+	return b.String(), fm
 }

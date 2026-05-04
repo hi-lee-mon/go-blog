@@ -3,14 +3,17 @@ package components
 type BlogData struct {
 	Title string
 	Href  string
+  Description string
 }
 
 templ Home(title string, blogDataList []BlogData) {
   @Layout(title) {
     for _, b := range blogDataList {
       <div class="card">
-        <a href={ b.Href }>{ b.Title }</a>
-        <p>{b.Title}</p>
+        <h2>
+          <a href={ b.Href }>{ b.Title }</a>
+        </h2>
+        <p class="description">{b.Description}</p>
       </div>
       <span style="margin-bottom:1rem; display:block"></span>
     }

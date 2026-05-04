@@ -1,7 +1,7 @@
 package components
 
-templ Post(content string) {
-  @Layout("Goでブログを作ってみた") {
+templ Post(content string, title string) {
+  @Layout(title) {
     <div>
       <div style="display:flex; justify-content:end">
         <a href="/public/index.html">

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -41,19 +42,22 @@ func main() {
 
 		// マークダウンファイルの中身をパース
 		content, err := os.ReadFile(path)
-		parsed := parser.Parse(string(content))
+		parsed, frontMatter := parser.Parse(string(content))
 
 		// ブログページを生成
-		render("/post/"+filename, components.Post(parsed))
+		newPath := "/post/" + filename
+		fmt.Println(newPath + "を作成しました")
+		render(newPath, components.Post(parsed, frontMatter.Title))
 
 		// ビルドしたブログへのリンクを作成
 		href := "/public" + strings.TrimPrefix(replacedPath, "contents")
 
-		data := components.BlogData{
-			Title: filename, // TODO:フロントマター
-			Href:  href,
+		blogData := components.BlogData{
+			Title:       frontMatter.Title,
+			Href:        href,
+			Description: frontMatter.Description,
 		}
-		blogDataList = append(blogDataList, data)
+		blogDataList = append(blogDataList, blogData)
 		return nil
 	})
 

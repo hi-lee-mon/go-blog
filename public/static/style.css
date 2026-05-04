@@ -1,6 +1,6 @@
 .button {
   background-color: skyblue;
-  border: 1px solid gray;
+  border: none;
   border-radius: 0.5rem;
   padding: 0.25rem 1.5rem;
   cursor: pointer
@@ -8,4 +8,21 @@
 
 .button:hover {
   opacity: .8
+}
+
+.card {
+  border: 1px solid skyblue;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.25;
+  padding-bottom: 0.5rem;
+}
+
+.description {
+  color: gray;
 }
