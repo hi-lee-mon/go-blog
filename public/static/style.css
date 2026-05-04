@@ -1,17 +1,19 @@
 .button {
-  background-color: skyblue;
+  background-color: #2563eb;
+  color: #f0f6ff;
   border: none;
   border-radius: 0.5rem;
   padding: 0.25rem 1.5rem;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .button:hover {
-  opacity: .8
+  background-color: #3b82f6;
 }
 
 .card {
-  border: 1px solid skyblue;
+  background-color: #1a2840;
+  border: 1px solid #1e3a5f;
   padding: 1rem;
   border-radius: 1rem;
 }
@@ -24,5 +26,5 @@
 }
 
 .description {
-  color: gray;
+  color: #94a3b8;
 }

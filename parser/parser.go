@@ -31,7 +31,8 @@ func replaceStrong(input string) string {
 	var b strings.Builder
 	splits := strings.Split(input, "**")
 	for i, s := range splits {
-		if i%2 != 0 {
+		isEscape := strings.HasPrefix(s, "\\")
+		if i%2 != 0 && !isEscape {
 			// 奇数
 			content := fmt.Sprintf("<strong>%s</strong>", s)
 			b.WriteString(content)
@@ -165,6 +166,9 @@ func Parse(input string) (string, FrontMatter) {
 		writeString(content, &b)
 	}
 
+	/*
+		フロントマタービルド処理
+	*/
 	fm := FrontMatter{}
 	fmLines := strings.Split(frontMatter, "\n")
 	for _, line := range fmLines {
@@ -182,6 +186,5 @@ func Parse(input string) (string, FrontMatter) {
 			fm.Description = replacedLine
 		}
 	}
-
 	return b.String(), fm
 }

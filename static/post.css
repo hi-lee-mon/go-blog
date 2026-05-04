@@ -5,7 +5,7 @@
   letter-spacing: -0.025em;
   line-height: 1.25;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #1e3a5f;
   margin-bottom: 1.5rem;
 }
 
@@ -16,36 +16,25 @@
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   padding-left: 12px;
-  border-left: 4px solid skyblue;
+  border-left: 4px solid #3b82f6;
 }
 
 .md h3 {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #555;
+  color: #94a3b8;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
-  padding-left: 16px;
   position: relative;
 }
 
-.md h3::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background: #aaa;
-  border-radius: 50%;
-}
+
 
 /* ── 段落 ── */
 .md p {
   font-size: 0.9375rem;
   line-height: 1.75;
-  color: #444;
+  color: #cbd5e1;
   margin-bottom: 0.75rem;
 }
 
@@ -70,7 +59,7 @@
   display: inline-block;
   min-width: 5px;
   height: 5px;
-  background: #aaa;
+  background: #60a5fa;
   border-radius: 50%;
   flex-shrink: 0;
   margin-top: 2px;
@@ -101,10 +90,15 @@
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  background: #e8f0fb;
-  color: #185FA5;
+  background: #1e3a5f;
+  color: #60a5fa;
   border-radius: 50%;
   font-size: 0.7rem;
   font-weight: 600;
   flex-shrink: 0;
+}
+
+/* ── 太字 ── */
+.md strong {
+  font-weight: 700;
 }

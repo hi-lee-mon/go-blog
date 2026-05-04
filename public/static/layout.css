@@ -1,5 +1,25 @@
 html {
   font-size: 16px;
+  background-color: #0c1220;
+  color: #e2e8f0;
+}
+
+body {
+  background-color: #0c1220;
+}
+
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #60a5fa;
 }
 
 main {
@@ -7,13 +27,13 @@ main {
   max-width: 680px;
   line-height: 1.25;
   padding: 0 8px;
-  color: #333;
+  color: #e2e8f0;
 }
 
 .header {
   padding: 1rem 0;
   margin-bottom: 2rem;
-  border-bottom: 0.25rem solid skyblue;
+  border-bottom: 0.25rem solid #3b82f6;
 }
 
 .logo {
@@ -22,7 +42,8 @@ main {
 }
 
 .card {
-  border: 1px solid skyblue;
+  background-color: #1a2840;
+  border: 1px solid #1e3a5f;
   padding: 0.5rem;
   border-radius: 1rem;
 }
@@ -35,9 +56,8 @@ main {
 
 .footer {
   font-size: 1rem;
-  ;
   margin-top: 2rem;
   padding: 1rem 0;
-  border-top: 0.25rem solid skyblue;
+  border-top: 0.25rem solid #3b82f6;
   text-align: center;
 }
