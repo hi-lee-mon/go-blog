@@ -2,6 +2,7 @@ html {
   font-size: 16px;
   background-color: #0c1220;
   color: #e2e8f0;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -37,6 +38,7 @@ main {
 }
 
 .logo {
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: bold;
   font-size: 1.75rem;
 }
