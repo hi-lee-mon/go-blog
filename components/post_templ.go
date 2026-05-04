@@ -41,7 +41,7 @@ func Post(content string) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div><button onclick=\"history.back()\" class=\"button\">前のページに戻る</button> <span style=\"margin-bottom:2rem; display:block\"></span><article class=\"article md\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div><div style=\"display:flex; justify-content:end\"><a href=\"/public/index.html\"><button class=\"button\">ホームに戻る</button></a></div><span style=\"margin-bottom:2rem; display:block\"></span><article class=\"article md\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
