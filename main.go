@@ -50,7 +50,7 @@ func main() {
 		render(newPath, components.Post(parsed, frontMatter.Title))
 
 		// ビルドしたブログへのリンクを作成
-		href := "/public" + strings.TrimPrefix(replacedPath, "contents")
+		href := strings.TrimPrefix(replacedPath, "contents")
 
 		blogData := components.BlogData{
 			Title:       frontMatter.Title,
